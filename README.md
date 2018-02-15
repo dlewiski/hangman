@@ -32,6 +32,8 @@ Hangman is a game where a user must solve for some hidden word by guessing lette
 
 #### Front-end
 
+[CLEAN INPUT]
+
 1. Update and render gallows
 
 ## Setup/Installation Requirements
