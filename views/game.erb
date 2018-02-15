@@ -90,8 +90,8 @@ ______________/_|___
 ______________/_|___
 </pre>' if @game.gallows_count == 6 %>
 
-<%= '<h2>YOU KILLED HIM</h2>' if @game.gallows_count == 6 %>
-
+<%= '<h2>YOU KILLED THEM</h2>' if @game.gallows_count == 6 %>
+<%= '<h2>YOU SAVED THEM!</h2>' if !(@game.placeholders.include?("_"))  %>
 
 <p><%= @game.placeholders.join(" ") %></p>
 <p><%= @game.guessed_letters.join(", ") %></p>
