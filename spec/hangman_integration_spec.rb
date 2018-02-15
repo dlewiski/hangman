@@ -7,7 +7,7 @@ describe('game input', {:type => :feature}) do
   it('take in a letter and display it in both array outputs') do
     visit('/')
     fill_in('guess', :with => 'r')
-    click_button('Submit!')
+    click_button('Submit letter')
     expect(page).to have_content('r')
   end
 end
