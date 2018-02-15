@@ -1,12 +1,36 @@
 class Hangman
-  attr_accessor :word_array, :word
+  attr_accessor :word_list, :word, :placeholders
 
   def initialize
-    @word_array = ["hello", "exciting", "epicodus", "ruby", "sinatra", "heroku"]
-    @word = @word_array.sample
+    @word_list = ["hello", "exciting", "epicodus", "ruby", "sinatra", "heroku"]
+    @word = @word_list.sample
+    @letters = @word.chars
+    @placeholders = Array.new(@letters.length, "_")
+    @guessed_letters = []
+    @gallows_count = 0
+  end
+
+  def input_word(word)
+    @word = word
+    @letters = @word.chars
+    @placeholders = Array.new(@letters.length, "_")
   end
 
   def has_letter?(letter)
-    @word.include?(letter)
+    @letters.include?(letter)
+  end
+
+  def update(letter)
+    @guessed_letters = @guessed_letters.push(letter)
+
+    if has_letter?(letter)
+      @letters.each_index do |i|
+        if @letters[i] == letter
+          @placeholders[i] = letter
+        end
+      end
+    else
+      @gallows_count += 1
+    end
   end
 end
