@@ -1,0 +1,13 @@
+<!-- gallows display -->
+
+
+<p><%= @game.placeholders.join(" ") %></p>
+<p><%= @game.guessed_letters.join(", ") %></p>
+
+<form action="/" method="post">
+  <div class="form-group">
+    <label for="guess">Next guess</label>
+    <input id="guess" name="guess" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit!</button>
+</form>

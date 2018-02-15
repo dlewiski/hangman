@@ -10,6 +10,14 @@ class Hangman
     @gallows_count = 0
   end
 
+  def self.current_game=(game)
+    @@current_game = game
+  end
+
+  def self.current_game
+    @@current_game
+  end
+
   def input_word(word)
     @word = word
     @letters = @word.chars

@@ -5,15 +5,18 @@ also_reload('lib/**/*.rb')
 require './lib/hangman'
 
 get('/') do
-  @favorites_list = Favorite.all()
-  erb(:list)
+  @game = Hangman.new
+  Hangman.current_game = @game
+  # binding.pry
+  erb(:game)
 end
 
 post('/') do
-  name = params["name"]
-  new_favorite_thing = Favorite.new(name)
-  new_favorite_thing.save()
-  @favorites_list = Favorite.all()
-  Favorite.clear()
-  erb(:list)
+  # binding.pry
+  @game = Hangman.current_game
+  # binding.pry
+  letter = params["guess"]
+  @game.update(letter)
+  # binding.pry
+  erb(:game)
 end
