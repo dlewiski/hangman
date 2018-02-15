@@ -1,5 +1,5 @@
 class Hangman
-  attr_accessor :word_list, :word, :placeholders
+  attr_accessor :word_list, :word, :placeholders, :guessed_letters
 
   def initialize
     @word_list = ["hello", "exciting", "epicodus", "ruby", "sinatra", "heroku"]

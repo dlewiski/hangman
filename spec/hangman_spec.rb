@@ -28,5 +28,12 @@ describe('Hangman') do
       # binding.pry
       expect(game.placeholders).to(eq(["r", "_", "_", "_"]))
     end
+
+    it('appends guessed letter into guessed letters array') do
+      game = Hangman.new
+      game.input_word("ruby")
+      game.update('r')
+      expect(game.guessed_letters).to(eq(["r"]))
+    end
   end
 end
